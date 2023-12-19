@@ -1,0 +1,17 @@
+class Solution {
+    public int arithmeticTriplets(int[] nums, int diff) {
+        HashMap<Integer , Integer> hashmap = new HashMap<>();
+        int count = 0;
+        for(int i  = 0 ; i < nums.length ; i++){
+            hashmap.put(nums[i] , i);
+        }
+
+        for(int j = 0 ; j < nums.length ; j++){
+            if(hashmap.containsKey(diff + nums[j]) && hashmap.containsKey((diff + nums[j])+diff)){
+                count++;
+
+            }
+        }
+        return count;       
+    }
+}
